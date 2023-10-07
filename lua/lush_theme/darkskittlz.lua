@@ -50,11 +50,12 @@ local hsl = lush.hsl
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   Normal = { bg = hsl(210, 90, 10), fg = hsl(208, 90, 75)}
-  visual = hsl(277, 73, 26)
+  visual = hsl(0, 0, 0)
   green = hsl(114, 100, 52)
   dark_green = hsl(117, 82, 40)
   red = hsl(0, 100, 50)
   blue = hsl(181, 100, 54)
+  dark_blue = hsl(191, 100, 46)
   return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
     -- groups, mostly used for styling UI elements.
@@ -65,7 +66,6 @@ local theme = lush(function(injected_functions)
     -- to reorder items as you go.
     --
     -- See :h highlight-groups
-    --
        ColorColumn    { bg = Normal.bg }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor         { }, -- Character under the cursor
@@ -102,7 +102,7 @@ local theme = lush(function(injected_functions)
     -- MsgArea        { }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
        MoreMsg        { }, -- |more-prompt|
-    -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
+       NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     -- Normal         { }, -- Normal text
        NormalFloat    { }, -- Normal text in floating windows.
        FloatBorder    { bg = Normal.bg }, -- Border of floating windows.
@@ -133,7 +133,7 @@ local theme = lush(function(injected_functions)
        Visual         { bg = visual }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg     { }, -- Warning messages
-    -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
+       Whitespace     { bg = Normal.bg }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     -- Winseparator   { bg = Normal.bg }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
     -- WildMenu       { }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
@@ -159,7 +159,7 @@ local theme = lush(function(injected_functions)
     -- Identifier     { }, -- (*) Any variable name
     -- Function       { }, --   Function name (also: methods for classes)
 
-    -- Statement      { }, -- (*) Any statement
+       Statement      { fg = dark_blue }, -- (*) Any statement
     -- Conditional    { }, --   if, then, else, endif, switch, etc.
     -- Repeat         { }, --   for, do, while, etc.
     -- Label          { }, --   case, default, etc.
@@ -178,8 +178,8 @@ local theme = lush(function(injected_functions)
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    -- Special        { }, -- (*) Any special symbol
-    -- SpecialChar    { }, --   Special character in a constant
+       Special        { }, -- (*) Any special symbol
+    -- SpecialChar    { bg = Normal.bg }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
