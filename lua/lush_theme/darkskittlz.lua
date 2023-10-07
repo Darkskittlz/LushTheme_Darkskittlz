@@ -1,4 +1,3 @@
---
 -- Built with,
 --
 --        ,gggg,
@@ -53,6 +52,7 @@ local theme = lush(function(injected_functions)
   Normal = { bg = hsl(210, 90, 10), fg = hsl(208, 90, 75)}
   visual = hsl(277, 73, 26)
   green = hsl(114, 100, 52)
+  dark_green = hsl(117, 82, 40)
   red = hsl(0, 100, 50)
   blue = hsl(181, 100, 54)
   return {
@@ -74,14 +74,14 @@ local theme = lush(function(injected_functions)
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
        CursorColumn   { bg = Normal.bg  }, -- Screen-column at the cursor, when 'cursorcolumn' is set.  
        
-      CursorLine     { bg = Normal.bg }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+       CursorLine     { bg = Normal.bg }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 
        Directory      { }, -- Directory names (and other special names in listings)
        DiffAdd        { fg = blue }, -- Diff mode: Added line |diff.txt|
        DiffChange     { fg = green }, -- Diff mode: Changed line |diff.txt|
-    -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
-    -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
+       DiffDelete     { fg = red }, -- Diff mode: Deleted line |diff.txt|
        EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+    -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
     -- ErrorMsg       { }, -- Error messages on the command line
@@ -150,7 +150,7 @@ local theme = lush(function(injected_functions)
     -- Comment        { }, -- Any comment
 
     -- Constant       { }, -- (*) Any constant
-    -- String         { }, --   A string constant: "this is a string"
+       String         { fg = dark_green }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
     -- Boolean        { }, --   A boolean constant: TRUE, false
