@@ -49,13 +49,13 @@ local hsl = lush.hsl
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
-  Normal = { bg = hsl(210, 90, 10), fg = hsl(208, 90, 75)}
-  visual = hsl(0, 0, 0)
-  green = hsl(114, 100, 52)
-  dark_green = hsl(117, 82, 40)
-  red = hsl(0, 100, 50)
-  blue = hsl(181, 100, 54)
-  dark_blue = hsl(191, 100, 46)
+  local Normal = { bg = hsl(210, 90, 10), fg = hsl(208, 90, 75)}
+  local visual = hsl(0, 0, 0)
+  local green = hsl(114, 100, 52)
+  local dark_green = hsl(117, 82, 40)
+  local red = hsl(0, 100, 50)
+  local blue = hsl(181, 100, 66)
+  local dark_blue = hsl(191, 100, 46)
   return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
     -- groups, mostly used for styling UI elements.
@@ -73,9 +73,7 @@ local theme = lush(function(injected_functions)
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
        CursorColumn   { bg = Normal.bg  }, -- Screen-column at the cursor, when 'cursorcolumn' is set.  
-       
        CursorLine     { bg = Normal.bg }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
-
        Directory      { }, -- Directory names (and other special names in listings)
        DiffAdd        { fg = blue }, -- Diff mode: Added line |diff.txt|
        DiffChange     { fg = green }, -- Diff mode: Changed line |diff.txt|
